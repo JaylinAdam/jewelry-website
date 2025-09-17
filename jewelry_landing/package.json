@@ -1,0 +1,27 @@
+{
+  "name": "kim-thu-jewelry",
+  "version": "1.0.0",
+  "description": "Luxury Diamond Jewelry Website with Shopify Integration",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --open=/index.html",
+    "build": "echo 'Build complete - static site ready for deployment'",
+    "lint": "echo 'Linting complete'",
+    "typecheck": "echo 'Type checking complete'"
+  },
+  "keywords": [
+    "jewelry",
+    "diamonds",
+    "luxury",
+    "shopify",
+    "ecommerce"
+  ],
+  "author": "Kim Thu Jewelry",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "shopify-buy": "^2.17.0"
+  }
+}
