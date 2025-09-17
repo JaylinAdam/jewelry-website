@@ -314,6 +314,7 @@ textarea {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   scroll-margin-top: calc(var(--header-height) - 7rem);
 }
 
@@ -326,6 +327,7 @@ textarea {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  justify-content: center;
 }
 
 .home__text {
@@ -805,6 +807,7 @@ textarea {
     gap: 3rem;
     text-align: center;
     padding: 0 1rem;
+    justify-content: center;
   }
 
   .home__title {
@@ -837,6 +840,7 @@ textarea {
   .home__content {
     grid-template-columns: 1fr 1fr;
     text-align: left;
+    justify-content: center;
   }
 
   .featured__container {
