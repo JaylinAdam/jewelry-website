@@ -1,262 +1,197 @@
 # Kim Thu Jewelry - Luxury Diamond Website
 
-A modern, responsive jewelry website built for Kim Thu Jewelry featuring Shopify integration, enhanced contact forms, and performance optimizations. The site is currently running in mock mode for development and testing purposes.
+A modern, responsive jewelry website built for Kim Thu Jewelry featuring Shopify integration, enhanced contact forms, and performance optimizations. Currently running in mock mode for development and testing.
 
-## Project Overview
+## Screenshots / Demo
 
-This project was developed as a custom website solution for Kim Thu Jewelry, a luxury diamond jewelry business. The website features a clean, modern design optimized for showcasing high-end jewelry products with integrated e-commerce functionality through Shopify.
+*[Screenshots and live demo will be added after deployment]*
 
-### Key Deliverables
+## Key Features
 
-- Responsive website design optimized for all devices
-- Shopify integration with multiple implementation modes
-- Performance-optimized codebase with Web Vitals monitoring
-- Accessibility-compliant interface (WCAG 2.1 AA)
-- SEO-optimized structure with sitemap and meta tags
-- Contact form integration with multiple backend options
+- **E-commerce Integration**: Shopify Buy Button & Storefront API support
+- **Performance Optimized**: Web Vitals monitoring, lazy loading, font optimization
+- **Accessibility Compliant**: WCAG 2.1 AA standards with keyboard navigation
+- **Responsive Design**: Mobile-first approach with clean, modern UI
+- **Contact System**: Enhanced forms with Netlify/Formspree integration
+- **SEO Ready**: Sitemap, robots.txt, and meta tag optimization
 
-## Features
+## Tech Stack
 
-- **Shopify Integration** (Three modes)
-  - Mock Mode - Local product data for development
-  - Buy Button Mode - Simple Shopify Buy Button embed
-  - Storefront API Mode - Advanced cart functionality
-- **Enhanced Contact Form** with Netlify Forms and Formspree support
-- **Performance Optimizations** with Web Vitals monitoring
-- **Accessibility** compliant (WCAG 2.1 AA)
-- **Responsive Design** for all devices
-- **SEO Optimized** with sitemap and robots.txt
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **E-commerce**: Shopify API integration
+- **Performance**: Web Vitals monitoring, image optimization
+- **Deployment**: Netlify/Vercel ready
+- **Development**: ESLint, Prettier, Live Server
 
-## Prerequisites
-
-- Node.js 18+
-- npm or yarn
-- Shopify store (for e-commerce features)
-- Netlify account (for form handling)
-
-## Setup
-
-### 1. Clone and Install
+## Quick Start
 
 ```bash
+# Clone and install
 git clone <your-repo-url>
-cd jewelry_website
-cd jewelry_landing
+cd jewelry_website/jewelry_landing
 npm install
+
+# Start development server
+npm run dev
 ```
 
-### 2. Environment Configuration
+Visit `http://localhost:3000` to see the site.
 
-Copy `.env.example` to `.env` and configure your settings:
+## Environment Setup
+
+<details>
+<summary>Click to expand environment configuration</summary>
+
+Copy `.env.example` to `.env` and configure:
 
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` with your actual values:
-
+**Environment Variables:**
 ```env
 # Shopify Configuration
-SHOP_MODE=buy-button
-SHOPIFY_STORE_DOMAIN=yourstore.myshopify.com
-SHOPIFY_STOREFRONT_TOKEN=your_storefront_access_token
-SHOPIFY_COLLECTION_ID=your_collection_id
+SHOP_MODE=mock                    # mock, buy-button, or storefront
+SHOPIFY_STORE_DOMAIN=             # yourstore.myshopify.com
+SHOPIFY_STOREFRONT_TOKEN=         # Storefront API token
+SHOPIFY_COLLECTION_ID=            # Collection ID for buy button
 
-# Contact Form Configuration
-CONTACT_SINK=netlify
-FORMSPREE_ID=your_formspree_id
-
-# Development
-NODE_ENV=development
+# Contact Form
+CONTACT_SINK=netlify              # netlify or formspree
+FORMSPREE_ID=                     # Formspree form ID
 ```
 
-### 3. Development Server
+</details>
 
-```bash
-npm run dev
-```
+## Shopify Integration
 
-Visit `http://localhost:3000` to see your site.
+<details>
+<summary>Click to expand Shopify setup details</summary>
 
-## Shopify Setup
-
-### Mode 1: Mock Mode (Current - Development)
-
-The site currently runs in **mock mode** using local product data. No Shopify setup required for development.
-
+### Current Mode: Mock (Development)
 ```env
 SHOP_MODE=mock
 ```
 
-### Mode 2: Buy Button (Simple)
-
-1. **Get your Shopify store domain:**
-
-   - Go to your Shopify admin
-   - Settings → General
-   - Copy your "Shop domain" (e.g., `mystore.myshopify.com`)
-
-2. **Get collection ID (optional):**
-
-   - Go to Products → Collections
-   - Click on your collection
-   - Copy the ID from the URL
-
-3. **Update configuration:**
+### Buy Button Mode
+1. Get Shopify store domain from Admin → Settings → General
+2. Get collection ID from Products → Collections
+3. Update `.env`:
    ```env
    SHOP_MODE=buy-button
    SHOPIFY_STORE_DOMAIN=mystore.myshopify.com
    SHOPIFY_COLLECTION_ID=123456789
    ```
 
-### Mode 3: Storefront API (Advanced)
-
-1. **Create a Storefront API access token:**
-
-   - Go to Apps → App and sales channel settings
-   - Develop apps → Create an app
-   - Configure Storefront API scopes
-   - Install and get the access token
-
-2. **Update configuration:**
+### Storefront API Mode
+1. Create Storefront API access token in Apps → App settings
+2. Configure Storefront API scopes
+3. Update `.env`:
    ```env
    SHOP_MODE=storefront
    SHOPIFY_STORE_DOMAIN=mystore.myshopify.com
    SHOPIFY_STOREFRONT_TOKEN=your_access_token
    ```
 
+</details>
+
 ## Contact Form Setup
 
-### Option 1: Netlify Forms (Recommended)
+<details>
+<summary>Click to expand contact form configuration</summary>
 
-1. Deploy to Netlify
-2. Forms are automatically detected
-3. No additional configuration needed
+### Netlify Forms (Recommended)
+- Deploy to Netlify
+- Forms automatically detected
+- No additional configuration needed
 
-### Option 2: Formspree
-
+### Formspree Alternative
 1. Sign up at [Formspree.io](https://formspree.io)
-2. Create a new form
-3. Copy your form ID
-4. Update configuration:
+2. Create new form and copy form ID
+3. Update `.env`:
    ```env
    CONTACT_SINK=formspree
    FORMSPREE_ID=your_form_id
    ```
 
-## Switching Modes
-
-### From Mock to Buy Button
-
-1. Update `.env`:
-
-   ```env
-   SHOP_MODE=buy-button
-   SHOPIFY_STORE_DOMAIN=yourstore.myshopify.com
-   SHOPIFY_COLLECTION_ID=your_collection_id
-   ```
-
-2. Test the following:
-   - Buy button rendering
-   - Collection display
-   - Shopify SDK loading
-
-### From Mock to Storefront
-
-1. Update `.env`:
-
-   ```env
-   SHOP_MODE=storefront
-   SHOPIFY_STORE_DOMAIN=yourstore.myshopify.com
-   SHOPIFY_STOREFRONT_TOKEN=your_token
-   ```
-
-2. Test the following:
-   - Product loading from Storefront API
-   - Cart functionality
-   - Checkout process
+</details>
 
 ## Deployment
 
 ### Netlify (Recommended)
-
-1. Connect your GitHub repository
+1. Connect GitHub repository
 2. Build command: `npm run build`
 3. Publish directory: `.` (root)
-4. Add environment variables in Netlify dashboard
+4. Add environment variables in dashboard
 
 ### Vercel
-
-1. Import your GitHub repository
+1. Import GitHub repository
 2. Build command: `npm run build`
 3. Output directory: `.`
 4. Add environment variables
 
-### Manual Deployment
-
-1. Run `npm run build`
-2. Upload all files to your web server
-3. Ensure `.env` variables are set on your server
-
-## Performance
-
-The site is optimized for:
+## Performance & Quality
 
 - **Lighthouse Performance**: ≥ 90
 - **Lighthouse Accessibility**: ≥ 95
 - **Core Web Vitals**: All green
+- **WCAG 2.1 AA Compliant**
 
-### Performance Features
+<details>
+<summary>Click to expand performance features</summary>
 
-- Image lazy loading
+- Image lazy loading and optimization
 - Font optimization with `font-display: swap`
 - Critical resource preloading
 - Web Vitals monitoring (dev mode)
-- Script optimization
+- Script optimization and deferring
 
-## Accessibility
-
-- WCAG 2.1 AA compliant
-- Keyboard navigation support
-- Screen reader friendly
-- Focus management
-- ARIA labels and descriptions
-- Color contrast compliance
+</details>
 
 ## Testing
 
-### Manual Testing Checklist
+<details>
+<summary>Click to expand testing details</summary>
 
+### Manual Testing Checklist
 - [ ] Homepage loads correctly
 - [ ] Navigation works on mobile/desktop
-- [ ] Contact form validation works
-- [ ] Contact form submits successfully
-- [ ] Shopify integration loads (both modes)
-- [ ] Cart functionality works (storefront mode)
-- [ ] All images load properly
+- [ ] Contact form validation and submission
+- [ ] Shopify integration (both modes)
+- [ ] Cart functionality (storefront mode)
 - [ ] Performance scores meet targets
 
 ### Automated Testing
-
 ```bash
-# Lint code
-npm run lint
-
-# Type check
-npm run typecheck
-
-# Build test
-npm run build
+npm run lint      # Code linting
+npm run build     # Build test
+npm run format    # Code formatting
 ```
+
+</details>
 
 ## Project Structure
 
 ```
 jewelry_website/
 ├── jewelry_landing/          # Main website code
+│   ├── assets/               # CSS, JS, images
+│   ├── index.html           # Main HTML file
+│   └── package.json         # Dependencies
+├── public/                  # Static assets (favicon, og.jpg)
+├── .github/workflows/       # CI/CD pipeline
+├── .env.example            # Environment template
+└── [config files]          # ESLint, Prettier, etc.
+```
+
+<details>
+<summary>Click to expand detailed project structure</summary>
+
+```
+jewelry_website/
+├── jewelry_landing/          # Main website code
 │   ├── assets/
-│   │   ├── css/
-│   │   │   └── styles.css    # Main stylesheet
+│   │   ├── css/styles.css    # Main stylesheet
 │   │   ├── js/
 │   │   │   ├── main.js      # Main JavaScript
 │   │   │   └── performance.js # Performance monitoring
@@ -280,67 +215,43 @@ jewelry_website/
 └── sitemap.xml           # SEO sitemap
 ```
 
-## Configuration
-
-### Environment Variables
-
-| Variable                   | Description                  | Required        | Default   |
-| -------------------------- | ---------------------------- | --------------- | --------- |
-| `SHOP_MODE`                | Shopify integration mode     | Yes             | `mock`    |
-| `SHOPIFY_STORE_DOMAIN`     | Your Shopify store domain    | Buy/Storefront  | -         |
-| `SHOPIFY_STOREFRONT_TOKEN` | Storefront API token         | Storefront mode | -         |
-| `SHOPIFY_COLLECTION_ID`    | Collection ID for buy button | Buy button mode | -         |
-| `CONTACT_SINK`             | Contact form handler         | Yes             | `netlify` |
-| `FORMSPREE_ID`             | Formspree form ID            | Formspree mode  | -         |
+</details>
 
 ## Troubleshooting
 
+<details>
+<summary>Click to expand troubleshooting guide</summary>
+
 ### Common Issues
 
-1. **Shopify products not loading**
+**Shopify products not loading:**
+- Check store domain and token
+- Verify CORS settings in Shopify
+- Check browser console for errors
 
-   - Check your store domain and token
-   - Verify CORS settings in Shopify
-   - Check browser console for errors
+**Contact form not working:**
+- Verify Netlify Forms is enabled
+- Check form name attribute matches
+- Test with different email addresses
 
-2. **Contact form not working**
-
-   - Verify Netlify Forms is enabled
-   - Check form name attribute matches
-   - Test with different email addresses
-
-3. **Performance issues**
-   - Check image sizes and formats
-   - Verify lazy loading is working
-   - Monitor Core Web Vitals
+**Performance issues:**
+- Check image sizes and formats
+- Verify lazy loading is working
+- Monitor Core Web Vitals
 
 ### Getting Help
-
-- Check the browser console for errors
+- Check browser console for errors
 - Verify all environment variables are set
 - Test in incognito mode
 - Check network tab for failed requests
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## Support
-
-For support, email adamkhainguyen@gmail.com or create an issue in the repository.
+</details>
 
 ---
 
 **Project Details:**
 - **Client:** Kim Thu Jewelry
-- **Type:** E-commerce Website
+- **Type:** E-commerce Website  
 - **Technologies:** HTML, CSS, JavaScript, Shopify API
 - **Status:** Development Complete, Ready for Production
+- **License:** MIT
