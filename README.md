@@ -4,7 +4,7 @@ A modern, responsive jewelry website built for Kim Thu Jewelry featuring Shopify
 
 ## Screenshots / Demo
 
-*[Screenshots and live demo will be added after deployment]*
+_[Screenshots and live demo will be added after deployment]_
 
 ## Key Features
 
@@ -49,6 +49,7 @@ cp .env.example .env
 ```
 
 **Environment Variables:**
+
 ```env
 # Shopify Configuration
 SHOP_MODE=mock                    # mock, buy-button, or storefront
@@ -69,11 +70,13 @@ FORMSPREE_ID=                     # Formspree form ID
 <summary>Click to expand Shopify setup details</summary>
 
 ### Current Mode: Mock (Development)
+
 ```env
 SHOP_MODE=mock
 ```
 
 ### Buy Button Mode
+
 1. Get Shopify store domain from Admin → Settings → General
 2. Get collection ID from Products → Collections
 3. Update `.env`:
@@ -84,6 +87,7 @@ SHOP_MODE=mock
    ```
 
 ### Storefront API Mode
+
 1. Create Storefront API access token in Apps → App settings
 2. Configure Storefront API scopes
 3. Update `.env`:
@@ -101,11 +105,13 @@ SHOP_MODE=mock
 <summary>Click to expand contact form configuration</summary>
 
 ### Netlify Forms (Recommended)
+
 - Deploy to Netlify
 - Forms automatically detected
 - No additional configuration needed
 
 ### Formspree Alternative
+
 1. Sign up at [Formspree.io](https://formspree.io)
 2. Create new form and copy form ID
 3. Update `.env`:
@@ -119,12 +125,14 @@ SHOP_MODE=mock
 ## Deployment
 
 ### Netlify (Recommended)
+
 1. Connect GitHub repository
 2. Build command: `npm run build`
 3. Publish directory: `.` (root)
 4. Add environment variables in dashboard
 
 ### Vercel
+
 1. Import GitHub repository
 2. Build command: `npm run build`
 3. Output directory: `.`
@@ -154,6 +162,7 @@ SHOP_MODE=mock
 <summary>Click to expand testing details</summary>
 
 ### Manual Testing Checklist
+
 - [ ] Homepage loads correctly
 - [ ] Navigation works on mobile/desktop
 - [ ] Contact form validation and submission
@@ -162,6 +171,7 @@ SHOP_MODE=mock
 - [ ] Performance scores meet targets
 
 ### Automated Testing
+
 ```bash
 npm run lint      # Code linting
 npm run build     # Build test
@@ -225,21 +235,25 @@ jewelry_website/
 ### Common Issues
 
 **Shopify products not loading:**
+
 - Check store domain and token
 - Verify CORS settings in Shopify
 - Check browser console for errors
 
 **Contact form not working:**
+
 - Verify Netlify Forms is enabled
 - Check form name attribute matches
 - Test with different email addresses
 
 **Performance issues:**
+
 - Check image sizes and formats
 - Verify lazy loading is working
 - Monitor Core Web Vitals
 
 ### Getting Help
+
 - Check browser console for errors
 - Verify all environment variables are set
 - Test in incognito mode
@@ -250,8 +264,9 @@ jewelry_website/
 ---
 
 **Project Details:**
+
 - **Client:** Kim Thu Jewelry
-- **Type:** E-commerce Website  
+- **Type:** E-commerce Website
 - **Technologies:** HTML, CSS, JavaScript, Shopify API
 - **Status:** Development Complete, Ready for Production
 - **License:** MIT

@@ -310,7 +310,6 @@ textarea {
 
 /*==================== HOME ====================*/
 .home__container {
-  padding-top: calc(var(--header-height) + 2rem);
   min-height: 100vh;
   display: flex;
   align-items: center;
