@@ -125,7 +125,7 @@ SHOP_MODE=mock
 
 ## Deployment
 
-### Netlify (Recommended)
+### Netlify
 
 1. Connect GitHub repository
 2. Build command: `npm run build`
