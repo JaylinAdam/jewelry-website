@@ -2,9 +2,9 @@
 
 A modern, responsive jewelry website built for Kim Thu Jewelry featuring Shopify integration, enhanced contact forms, and performance optimizations. Currently running in mock mode for development and testing.
 
-## Screenshots / Demo
-
-_[Screenshots and live demo will be added after deployment]_
+## Live Demo  
+Website deployed on Vercel: https://jaylinadam-jewelry-website.vercel.app
+[![Project Screenshot](./assets/jewelry_website_demo.png)](https://jaylinadam-jewelry-website.vercel.app)
 
 ## Key Features
 
