@@ -335,12 +335,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-For support, email thuluu08@yahoo.com or create an issue in the repository.
+For support, email adamkhainguyen@gmail.com or create an issue in the repository.
 
 ---
 
 **Project Details:**
 - **Client:** Kim Thu Jewelry
 - **Type:** E-commerce Website
-- **Technologies:** HTML5, CSS3, JavaScript, Shopify API
+- **Technologies:** HTML, CSS, JavaScript, Shopify API
 - **Status:** Development Complete, Ready for Production
