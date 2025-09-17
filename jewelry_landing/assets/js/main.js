@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Message length validation
-    if (fieldName === 'message' && value && value.length < 10) {
-      isValid = false;
-      errorMessage = 'Message must be at least 10 characters long';
-    }
+    // Message length validation (removed minimum length requirement)
+    // if (fieldName === 'message' && value && value.length < 10) {
+    //   isValid = false;
+    //   errorMessage = 'Message must be at least 10 characters long';
+    // }
 
     if (!isValid) {
       errorElement.textContent = errorMessage;
@@ -177,6 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (error) {
         console.error('Form submission error:', error);
 
+        // Show error alert
+        alert(
+          'Failed to send message. Please try again or contact us directly.'
+        );
+
         // Show error message
         const errorMessage = document.createElement('div');
         errorMessage.className = 'contact__error contact__error--global';
@@ -191,6 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           errorMessage.remove();
         }, 5000);
+
+        // Clear form even on error
+        form.reset();
 
         // Reset button state
         if (submitBtn && buttonText && buttonLoading) {
