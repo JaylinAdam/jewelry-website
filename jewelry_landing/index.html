@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -29,7 +29,7 @@
     />
     <meta
       property="og:image"
-      content="https://kimthujewelry.com/assets/img/og-image.jpg"
+      content="https://kimthujewelry.com/public/og.jpg"
     />
 
     <!-- Twitter -->
@@ -45,7 +45,7 @@
     />
     <meta
       property="twitter:image"
-      content="https://kimthujewelry.com/assets/img/og-image.jpg"
+      content="https://kimthujewelry.com/public/og.jpg"
     />
 
     <!--==================== FAVICON ====================-->
@@ -314,7 +314,7 @@
     <!--==================== SHOP MODE CONFIGURATION ====================-->
     <script>
       // Set shop mode for the application
-      window.SHOP_MODE = "mock"; // Change to 'buy-button' or 'storefront' when ready
+      window.SHOP_MODE = 'mock'; // Change to 'buy-button' or 'storefront' when ready
 
       // Optional: Set Shopify environment variables when available
       // window.SHOPIFY_STORE_DOMAIN = 'yourstore.myshopify.com';
@@ -327,75 +327,75 @@
       // Mock products data
       const mockProducts = [
         {
-          id: "mock-1",
-          title: "Test Product",
+          id: 'mock-1',
+          title: 'Test Product',
           price: 2499.0,
           image: {
-            url: "assets/img/product_1.avif",
-            hoverUrl: "assets/img/product_1_alt.png",
-            alt: "Test Product with brilliant cut diamond",
+            url: 'assets/img/product_1.avif',
+            hoverUrl: 'assets/img/product_1_alt.png',
+            alt: 'Test Product with brilliant cut diamond',
           },
-          description: "No Description Yet",
-          category: "Rings",
+          description: 'No Description Yet',
+          category: 'Rings',
           inStock: true,
         },
         {
-          id: "mock-2",
-          title: "Test Product",
+          id: 'mock-2',
+          title: 'Test Product',
           price: 1899.0,
           image: {
-            url: "assets/img/product_1.avif",
-            hoverUrl: "assets/img/product_1_alt.png",
-            alt: "Test Product with elegant setting",
+            url: 'assets/img/product_1.avif',
+            hoverUrl: 'assets/img/product_1_alt.png',
+            alt: 'Test Product with elegant setting',
           },
-          description: "No Description Yet",
-          category: "Rings",
+          description: 'No Description Yet',
+          category: 'Rings',
           inStock: true,
         },
         {
-          id: "mock-3",
-          title: "Test Product",
+          id: 'mock-3',
+          title: 'Test Product',
           price: 1299.0,
           image: {
-            url: "assets/img/product_1.avif",
-            hoverUrl: "assets/img/product_1_alt.png",
-            alt: "Test Product with sparkling diamonds",
+            url: 'assets/img/product_1.avif',
+            hoverUrl: 'assets/img/product_1_alt.png',
+            alt: 'Test Product with sparkling diamonds',
           },
-          description: "No Description Yet",
-          category: "Bracelets",
+          description: 'No Description Yet',
+          category: 'Bracelets',
           inStock: true,
         },
         {
-          id: "mock-4",
-          title: "Test Product",
+          id: 'mock-4',
+          title: 'Test Product',
           price: 899.0,
           image: {
-            url: "assets/img/product_1.avif",
-            hoverUrl: "assets/img/product_1_alt.png",
-            alt: "Test Product with elegant design",
+            url: 'assets/img/product_1.avif',
+            hoverUrl: 'assets/img/product_1_alt.png',
+            alt: 'Test Product with elegant design',
           },
-          description: "No Description Yet",
-          category: "Earrings",
+          description: 'No Description Yet',
+          category: 'Earrings',
           inStock: true,
         },
       ];
 
       // Utility functions
       function formatPrice(price) {
-        return new Intl.NumberFormat("en-US", {
-          style: "currency",
-          currency: "USD",
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
           minimumFractionDigits: 0,
           maximumFractionDigits: 0,
         }).format(price);
       }
 
       function renderProductCard(product) {
-        const availabilityClass = product.inStock ? "in-stock" : "out-of-stock";
+        const availabilityClass = product.inStock ? 'in-stock' : 'out-of-stock';
         const buttonText = product.inStock
-          ? "Add to Cart (Demo)"
-          : "Out of Stock";
-        const buttonDisabled = product.inStock ? "" : "disabled";
+          ? 'Add to Cart (Demo)'
+          : 'Out of Stock';
+        const buttonDisabled = product.inStock ? '' : 'disabled';
 
         return `
           <div class="featured-grid__product" role="gridcell" aria-label="${
@@ -440,26 +440,26 @@
         `;
       }
 
-      function showToast(message, type = "success") {
+      function showToast(message, type = 'success') {
         // Remove existing toast if any
-        const existingToast = document.querySelector(".featured-grid__toast");
+        const existingToast = document.querySelector('.featured-grid__toast');
         if (existingToast) {
           existingToast.remove();
         }
 
         // Create toast element
-        const toast = document.createElement("div");
+        const toast = document.createElement('div');
         toast.className = `featured-grid__toast featured-grid__toast--${type}`;
-        toast.setAttribute("role", "status");
-        toast.setAttribute("aria-live", "polite");
-        toast.setAttribute("aria-atomic", "true");
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        toast.setAttribute('aria-atomic', 'true');
 
         const iconClass =
-          type === "success"
-            ? "uil-check-circle"
-            : type === "error"
-            ? "uil-times-circle"
-            : "uil-info-circle";
+          type === 'success'
+            ? 'uil-check-circle'
+            : type === 'error'
+              ? 'uil-times-circle'
+              : 'uil-info-circle';
 
         toast.innerHTML = `
           <i class="uil ${iconClass}"></i>
@@ -471,12 +471,12 @@
 
         // Show toast with animation
         setTimeout(() => {
-          toast.classList.add("featured-grid__toast--show");
+          toast.classList.add('featured-grid__toast--show');
         }, 100);
 
         // Auto remove after 3 seconds
         setTimeout(() => {
-          toast.classList.remove("featured-grid__toast--show");
+          toast.classList.remove('featured-grid__toast--show');
           setTimeout(() => {
             if (toast.parentNode) {
               toast.remove();
@@ -499,34 +499,34 @@
         // Simulate API call delay
         setTimeout(() => {
           // Show success message
-          showToast(`${productTitle} added (demo)`, "success");
+          showToast(`${productTitle} added (demo)`, 'success');
 
           // Reset button
           button.innerHTML = originalText;
           button.disabled = false;
 
           // Add visual feedback
-          button.classList.add("added");
+          button.classList.add('added');
           setTimeout(() => {
-            button.classList.remove("added");
+            button.classList.remove('added');
           }, 2000);
         }, 1000);
       }
 
       function attachEventListeners() {
         const addToCartButtons = document.querySelectorAll(
-          ".featured-grid__add-to-cart"
+          '.featured-grid__add-to-cart'
         );
 
-        addToCartButtons.forEach((button) => {
-          button.addEventListener("click", (e) => {
+        addToCartButtons.forEach(button => {
+          button.addEventListener('click', e => {
             e.preventDefault();
             handleAddToCart(e.target);
           });
 
           // Keyboard support
-          button.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
+          button.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
               handleAddToCart(e.target);
             }
@@ -535,11 +535,11 @@
       }
 
       // Initialize when DOM is loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        const container = document.getElementById("featured-grid-container");
+      document.addEventListener('DOMContentLoaded', function () {
+        const container = document.getElementById('featured-grid-container');
 
         if (container) {
-          console.log("Container found, rendering products...");
+          console.log('Container found, rendering products...');
 
           container.innerHTML = `
             <div class="featured-grid">
@@ -555,8 +555,8 @@
               </div>
               <div class="featured-grid__products" role="grid" aria-label="Featured products">
                 ${mockProducts
-                  .map((product) => renderProductCard(product))
-                  .join("")}
+                  .map(product => renderProductCard(product))
+                  .join('')}
               </div>
             </div>
           `;
@@ -564,9 +564,9 @@
           // Add event listeners
           attachEventListeners();
 
-          console.log("Products rendered successfully!");
+          console.log('Products rendered successfully!');
         } else {
-          console.error("Container not found!");
+          console.error('Container not found!');
         }
       });
     </script>

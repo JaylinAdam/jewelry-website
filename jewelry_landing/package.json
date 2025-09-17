@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "npx live-server --port=3000 --open=/index.html",
     "build": "echo 'Build complete - static site ready for deployment'",
-    "lint": "echo 'Linting complete'",
-    "typecheck": "echo 'Type checking complete'"
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "check": "npm run lint && npm run build",
+    "start": "npm run dev"
   },
   "keywords": [
     "jewelry",
@@ -19,7 +21,9 @@
   "author": "Kim Thu Jewelry",
   "license": "MIT",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
   },
   "dependencies": {
     "shopify-buy": "^2.17.0"

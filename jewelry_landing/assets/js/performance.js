@@ -2,8 +2,8 @@
 class PerformanceMonitor {
   constructor() {
     this.isDev =
-      window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1";
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1';
     this.init();
   }
 
@@ -18,7 +18,7 @@ class PerformanceMonitor {
     try {
       // Load web-vitals library dynamically
       const { getCLS, getFID, getFCP, getLCP, getTTFB } = await import(
-        "https://unpkg.com/web-vitals@3/dist/web-vitals.attribution.js"
+        'https://unpkg.com/web-vitals@3/dist/web-vitals.attribution.js'
       );
 
       // Measure Core Web Vitals
@@ -28,7 +28,7 @@ class PerformanceMonitor {
       getLCP(this.logMetric.bind(this));
       getTTFB(this.logMetric.bind(this));
     } catch (error) {
-      console.warn("Failed to load web-vitals:", error);
+      console.warn('Failed to load web-vitals:', error);
     }
   }
 
@@ -46,8 +46,8 @@ class PerformanceMonitor {
 
   monitorPerformance() {
     // Monitor resource loading
-    if ("PerformanceObserver" in window) {
-      const observer = new PerformanceObserver((list) => {
+    if ('PerformanceObserver' in window) {
+      const observer = new PerformanceObserver(list => {
         for (const entry of list.getEntries()) {
           if (this.isDev) {
             console.log(`[Performance] ${entry.entryType}:`, {
@@ -60,9 +60,9 @@ class PerformanceMonitor {
       });
 
       try {
-        observer.observe({ entryTypes: ["navigation", "resource", "paint"] });
+        observer.observe({ entryTypes: ['navigation', 'resource', 'paint'] });
       } catch (error) {
-        console.warn("PerformanceObserver not supported:", error);
+        console.warn('PerformanceObserver not supported:', error);
       }
     }
   }
@@ -80,14 +80,14 @@ class ImageOptimizer {
   }
 
   lazyLoadImages() {
-    if ("IntersectionObserver" in window) {
+    if ('IntersectionObserver' in window) {
       const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             const img = entry.target;
             if (img.dataset.src) {
               img.src = img.dataset.src;
-              img.classList.remove("lazy");
+              img.classList.remove('lazy');
               observer.unobserve(img);
             }
           }
@@ -95,7 +95,7 @@ class ImageOptimizer {
       });
 
       // Observe all images with data-src attribute
-      document.querySelectorAll("img[data-src]").forEach((img) => {
+      document.querySelectorAll('img[data-src]').forEach(img => {
         imageObserver.observe(img);
       });
     }
@@ -103,23 +103,23 @@ class ImageOptimizer {
 
   preloadCriticalImages() {
     // Preload hero image
-    const heroImg = document.querySelector(".home__product-img");
+    const heroImg = document.querySelector('.home__product-img');
     if (heroImg) {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
       link.href = heroImg.src;
       document.head.appendChild(link);
     }
 
     // Preload first few product images
-    const productImgs = document.querySelectorAll(".featured__product-img");
+    const productImgs = document.querySelectorAll('.featured__product-img');
     productImgs.forEach((img, index) => {
       if (index < 3) {
         // Only preload first 3
-        const link = document.createElement("link");
-        link.rel = "preload";
-        link.as = "image";
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
         link.href = img.src;
         document.head.appendChild(link);
       }
@@ -144,24 +144,24 @@ class FontOptimizer {
     );
     if (googleFontsLink) {
       googleFontsLink.href = googleFontsLink.href.replace(
-        "display=swap",
-        "display=swap"
+        'display=swap',
+        'display=swap'
       );
     }
 
     // Preload critical fonts
     const criticalFonts = [
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap",
-      "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
+      'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap',
+      'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap',
     ];
 
-    criticalFonts.forEach((fontUrl) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "style";
+    criticalFonts.forEach(fontUrl => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'style';
       link.href = fontUrl;
       link.onload = function () {
-        this.rel = "stylesheet";
+        this.rel = 'stylesheet';
       };
       document.head.appendChild(link);
     });
@@ -180,7 +180,7 @@ class ScriptOptimizer {
 
   optimizeScriptLoading() {
     // Load non-critical scripts after page load
-    window.addEventListener("load", () => {
+    window.addEventListener('load', () => {
       // Load analytics or other non-critical scripts here
       this.loadAnalytics();
     });
@@ -189,12 +189,12 @@ class ScriptOptimizer {
   loadAnalytics() {
     // Placeholder for analytics loading
     // This would load Google Analytics, etc. after page load
-    console.log("[Performance] Loading analytics after page load");
+    console.log('[Performance] Loading analytics after page load');
   }
 }
 
 // Initialize performance optimizations
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   new PerformanceMonitor();
   new ImageOptimizer();
   new FontOptimizer();

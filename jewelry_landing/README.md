@@ -1,12 +1,13 @@
 # Kim Thu Jewelry - Luxury Diamond Website
 
-A modern, responsive jewelry website featuring Shopify integration, enhanced contact forms, and performance optimizations.
+A modern, responsive jewelry website featuring Shopify integration skeleton, enhanced contact forms, and performance optimizations. Currently running in **mock mode** for development and testing.
 
 ## 🚀 Features
 
-- **Shopify Integration** (Two modes)
-  - Simple Buy Button embed mode
-  - Advanced Storefront API with cart functionality
+- **Shopify Integration Skeleton** (Three modes)
+  - **Mock Mode** - Local product data for development
+  - **Buy Button Mode** - Simple Shopify Buy Button embed
+  - **Storefront API Mode** - Advanced cart functionality
 - **Enhanced Contact Form** with Netlify Forms and Formspree support
 - **Performance Optimizations** with Web Vitals monitoring
 - **Accessibility** compliant (WCAG 2.1 AA)
@@ -65,16 +66,22 @@ Visit `http://localhost:3000` to see your site.
 
 ## 🛍️ Shopify Setup
 
-### Mode 1: Buy Button (Simple)
+### Mode 1: Mock Mode (Current - Development)
+
+The site currently runs in **mock mode** using local product data. No Shopify setup required for development.
+
+```env
+SHOP_MODE=mock
+```
+
+### Mode 2: Buy Button (Simple)
 
 1. **Get your Shopify store domain:**
-
    - Go to your Shopify admin
    - Settings → General
    - Copy your "Shop domain" (e.g., `mystore.myshopify.com`)
 
 2. **Get collection ID (optional):**
-
    - Go to Products → Collections
    - Click on your collection
    - Copy the ID from the URL
@@ -86,10 +93,9 @@ Visit `http://localhost:3000` to see your site.
    SHOPIFY_COLLECTION_ID=123456789
    ```
 
-### Mode 2: Storefront API (Advanced)
+### Mode 3: Storefront API (Advanced)
 
 1. **Create a Storefront API access token:**
-
    - Go to Apps → App and sales channel settings
    - Develop apps → Create an app
    - Configure Storefront API scopes
@@ -123,12 +129,28 @@ Visit `http://localhost:3000` to see your site.
 
 ## 🔄 Switching Modes
 
-### From Buy Button to Storefront
+### From Mock to Buy Button
+
+1. Update `.env`:
+
+   ```env
+   SHOP_MODE=buy-button
+   SHOPIFY_STORE_DOMAIN=yourstore.myshopify.com
+   SHOPIFY_COLLECTION_ID=your_collection_id
+   ```
+
+2. Test the following:
+   - Buy button rendering
+   - Collection display
+   - Shopify SDK loading
+
+### From Mock to Storefront
 
 1. Update `.env`:
 
    ```env
    SHOP_MODE=storefront
+   SHOPIFY_STORE_DOMAIN=yourstore.myshopify.com
    SHOPIFY_STOREFRONT_TOKEN=your_token
    ```
 
@@ -136,19 +158,6 @@ Visit `http://localhost:3000` to see your site.
    - Product loading from Storefront API
    - Cart functionality
    - Checkout process
-
-### From Storefront to Buy Button
-
-1. Update `.env`:
-
-   ```env
-   SHOP_MODE=buy-button
-   ```
-
-2. Test the following:
-   - Buy button rendering
-   - Collection display
-   - Shopify SDK loading
 
 ## 🚀 Deployment
 
@@ -232,15 +241,18 @@ jewelry_landing/
 │   │   └── styles.css          # Main stylesheet
 │   ├── js/
 │   │   ├── main.js            # Main JavaScript
-│   │   ├── shopify-buy-button.js    # Buy Button integration
-│   │   ├── shopify-storefront.js    # Storefront API integration
 │   │   └── performance.js     # Performance monitoring
 │   └── img/                   # Images
+├── public/
+│   ├── favicon.ico           # Site favicon
+│   └── og.jpg               # Open Graph image
 ├── .github/
 │   └── workflows/
 │       └── ci.yml            # GitHub Actions CI
 ├── .env.example              # Environment variables template
 ├── .gitignore               # Git ignore rules
+├── .prettierrc              # Prettier configuration
+├── .eslintrc.json           # ESLint configuration
 ├── index.html               # Main HTML file
 ├── package.json             # Dependencies and scripts
 ├── README.md               # This file
@@ -253,27 +265,25 @@ jewelry_landing/
 
 ### Environment Variables
 
-| Variable                   | Description                  | Required        | Default      |
-| -------------------------- | ---------------------------- | --------------- | ------------ |
-| `SHOP_MODE`                | Shopify integration mode     | Yes             | `buy-button` |
-| `SHOPIFY_STORE_DOMAIN`     | Your Shopify store domain    | Yes             | -            |
-| `SHOPIFY_STOREFRONT_TOKEN` | Storefront API token         | Storefront mode | -            |
-| `SHOPIFY_COLLECTION_ID`    | Collection ID for buy button | No              | -            |
-| `CONTACT_SINK`             | Contact form handler         | Yes             | `netlify`    |
-| `FORMSPREE_ID`             | Formspree form ID            | Formspree mode  | -            |
+| Variable                   | Description                  | Required        | Default   |
+| -------------------------- | ---------------------------- | --------------- | --------- |
+| `SHOP_MODE`                | Shopify integration mode     | Yes             | `mock`    |
+| `SHOPIFY_STORE_DOMAIN`     | Your Shopify store domain    | Buy/Storefront  | -         |
+| `SHOPIFY_STOREFRONT_TOKEN` | Storefront API token         | Storefront mode | -         |
+| `SHOPIFY_COLLECTION_ID`    | Collection ID for buy button | Buy button mode | -         |
+| `CONTACT_SINK`             | Contact form handler         | Yes             | `netlify` |
+| `FORMSPREE_ID`             | Formspree form ID            | Formspree mode  | -         |
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
 
 1. **Shopify products not loading**
-
    - Check your store domain and token
    - Verify CORS settings in Shopify
    - Check browser console for errors
 
 2. **Contact form not working**
-
    - Verify Netlify Forms is enabled
    - Check form name attribute matches
    - Test with different email addresses
